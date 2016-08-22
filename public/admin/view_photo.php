@@ -8,16 +8,6 @@ if(!$session->is_logged_in())
 
 <?php
 
-//    $pictures = Photograph::get_all();
-//    echo "<pre>";
-//    print_r($pictures[0]);
-//    echo "</pre><br>";
-//
-//
-//    echo $pictures[0]->filename;
-// <div>
-//     <img src="../images/<?php echo $pictures[0]->filename;" alt="">
-// </div>
 
  //find all the photos
 
@@ -52,5 +42,6 @@ if(!$session->is_logged_in())
    
 </table>
  <p><a href="photo_upload.php">Upload a new photograth</a></p>
+ <p><a href="index.php">Home</a></p>
 </div>
 <?php include_layout_template("admin_footer.php"); ?>

@@ -16,6 +16,7 @@ if(!$session->is_logged_in())
         <?php echo output_message($message); ?>
         
         <p><a href="logfile.php">Log file</a></p>
+         <p><a href="view_photo.php">View picture</a></p>
         <div>
             <p></p>
         </div>
