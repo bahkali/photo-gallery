@@ -3,7 +3,7 @@ define('DS', DIRECTORY_SEPARATOR);
 
 //C:\xampp\htdocs\SN-1\photo_gallery
 
-define('SITE_ROOT', DS.'xampp'.DS.'htdocs'.DS.'SN-1'.DS. 'photo_gallery');
+define('SITE_ROOT', DS.'xampp'.DS.'htdocs'.DS. 'photo_gallery');
 
 define('LIB_PATH', SITE_ROOT.DS.'includes');
 
