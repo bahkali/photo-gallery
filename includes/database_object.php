@@ -29,6 +29,14 @@ class DatabaseObject{
         
         return $object_array;
     }
+    
+    public static function count_all(){
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . static::$table_name;
+        $result_set = $database->query($sql);
+        $row = $database->fetch_array($result_set);
+        return array_shift($row);
+    }
      
     private static function instantiate($record){ 
         //could check that $record exist and is an array
@@ -80,8 +88,11 @@ class DatabaseObject{
         return $clean_attributes;
     }
     
+    public function save(){
+        return isset($this->id) ? $this->updated() : $this->create();
+    }
+    
     public function create(){
-        
         global $database;
         
         $attributes = $this->sanitized_attributes();

@@ -44,6 +44,10 @@ class Photograph extends DatabaseObject{
         }
     }
     
+    public function comments(){
+        return comment::find_comments_on($this->id);
+    }
+    
     //pass in $_FILE(['uploaded_file']) as an argument
     public function attach_file($file){
         //perform error checking on the form parametres

@@ -11,6 +11,7 @@ if(!$photo){
     $session->message("The photo could not be located.");
     redirect_to('index.php');
 }
+
 if(isset($_POST['submit'])){
     $author = trim($_POST['author']);
     $body   = trim($_POST['body']);
@@ -28,6 +29,8 @@ if(isset($_POST['submit'])){
     $body   ='';
 }
 
+$comments=$photo->comments();
+ 
 ?>
 <?php include_layout_template("header.php"); ?>
 
@@ -39,6 +42,16 @@ if(isset($_POST['submit'])){
 </div>
 
 <!-- list comments -->
+<div id="comments">
+   <?php foreach($comments as $comment): ?>
+    <div class="comment" style="margin-bottom: 2em;">
+        <div class="author"><?php echo htmlentities($comment->author); ?></div>
+        <div class="body"><?php echo strip_tags($comment->body,'<strong><em><p>'); ?></div>
+        <div class="meta-info" style="font-size:0.8em;"><?php echo datetime_to_text($comment->created);?></div>
+    </div>
+    <?php endforeach; ?>
+    <?php if(empty($comments)) {echo "No Comments.";}?>
+</div>
 
 <div id="comment-form">
     <h3>New Comment</h3>
